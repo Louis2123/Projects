@@ -1,49 +1,33 @@
 # Startup Funding Estimation
 
-This project builds a machine learning model to analyze how startup funding is influenced by founding conditions such as market type, timing, and macroeconomic context. The goal is not to predict specific outcomes for individual companies but to understand broader patterns in investment behavior across the startup landscape.
+This project analyzes how founding conditions influence the total investment startups receive. Using data from over 28,000 companies founded between 1995 and 2015, we built a regression model to capture relationships between funding amounts, market type, founding year, location, and global economic context.
 
-## Background
+## What’s in the project
 
-Startup funding varies significantly across industries and economic periods. While early-stage evaluations often rely on financial records or founder networks, this project takes a structured data approach. By modeling historical startup and GDP data, we explore how factors available at founding time relate to total investment received.
+- Cleaned startup-level data and merged it with annual global GDP
+- Created features such as time to first funding, age at last funding, and number of categories
+- Applied log transformation to reduce skew
+- Built a regression pipeline with scaling, encoding, and cross-validation
+- Trained and compared four models: Linear Regression, Decision Tree, AdaBoost, and XGBoost
+- Selected XGBoost based on test performance
 
-## Objective
+## Key insights
 
-To develop a regression-based model that explains and simulates total startup funding using structured company and economic data. The model aims to support large-scale analysis of funding dynamics and provide insight into how structural factors influence investment outcomes.
+- Biotech companies receive higher total funding due to capital intensity  
+- Software startups are most common but receive lower funding on average  
+- Funding patterns followed global GDP before 2008, then diverged after the financial crisis
 
-## Data
+## Use cases
 
-- 28,000+ startups founded between 1995 and 2015  
-- Fields include founding year, country, market category, funding history  
-- Global GDP data added by founding year to reflect macroeconomic context
-
-## Method
-
-- Cleaned and filtered startup data, removing invalid and missing values  
-- Constructed features such as company age, time to funding, and category count  
-- Merged annual GDP as an external variable  
-- Applied log transformation to reduce skew in both features and target  
-- Built a regression pipeline using scikit-learn tools for scaling and encoding  
-- Trained and evaluated four models: Linear Regression, Decision Tree, AdaBoost, and XGBoost  
-- Used 5-fold cross-validation and grid search for model tuning
-
-## Results
-
-- XGBoost performed best in both test accuracy and generalization  
-- Biotech companies received more investment on average due to higher capital needs  
-- Software startups were most common but had lower average funding  
-- Funding patterns generally followed global GDP until 2008, after which they diverged
-
-## Application
-
-This model helps identify structural factors that influence startup funding. It can support early-stage investment screening, market analysis, and policy research on entrepreneurial finance.
+The model supports early-stage investment screening, funding potential analysis, and startup ecosystem research. It offers a structured way to understand how timing, industry, and macro conditions shape long-term funding outcomes.
 
 ## Files
 
-- `startup_trend_analysis.ipynb`: Trend analysis and funding pattern exploration  
-- `funding_prediction_modeling.ipynb`: Feature engineering, modeling, and evaluation  
-- `organisations.csv`: Cleaned startup data  
-- `World_Gross domestic product.csv`: Global GDP data by year
+- **startup_trend_analysis.ipynb** – Explores startup trends and funding evolution  
+- **funding_prediction_modeling.ipynb** – Feature engineering, model training, and evaluation  
+- **organisations.csv** – Cleaned startup dataset  
+- **World_Gross domestic product.csv** – Global GDP data by year
 
-## Technologies
+## Tools
 
-Python, pandas, scikit-learn, XGBoost, matplotlib, seaborn, Jupyter Notebook
+Python, pandas, scikit-learn, XGBoost, matplotlib, seaborn
