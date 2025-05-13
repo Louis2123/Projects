@@ -1,12 +1,12 @@
 # Startup Funding Estimation
 
-This project builds a regression-based machine learning model to estimate total investment received by startups, based on founding characteristics, sector, and macroeconomic conditions. The goal is to capture how structural factors—such as industry type, founding year, and global GDP—relate to long-term funding outcomes.
+This project builds a regression-based ML pipeline to predict startup funding amounts based on founding year, market, country, and macroeconomic data. The goal is to identify structural patterns in funding outcomes across industries and time.
 
-We used data from over 28,000 startups founded between 1995 and 2015, merged with annual global GDP figures. Key features were engineered to capture time-to-funding, company age at last investment, and category diversity. Skewed variables were log-transformed. The modeling pipeline included scaling, one-hot encoding, and cross-validation using scikit-learn’s `ColumnTransformer`.
+We used data from over 28,000 startups (1995–2015) and merged it with global GDP figures. Key features include time-to-first/last funding, startup age, and category diversity. Skewed variables were log-transformed. The pipeline used scaling, encoding, and 5-fold cross-validation.
 
-Four regression models were trained and evaluated: Linear Regression, Decision Tree, AdaBoost, and XGBoost. After hyperparameter tuning with `GridSearchCV` and 5-fold cross-validation, XGBoost was selected for its superior performance on unseen data.
+Four models were trained and compared: Linear Regression, Decision Tree, AdaBoost, and XGBoost. XGBoost achieved the best test R² (0.53). The model revealed sector-level differences and post-2008 divergence between GDP and funding trends.
 
-The model revealed sector-level differences—biotech startups typically receive more investment than software startups—and identified a divergence between GDP and funding trends post-2008. This approach offers a scalable way to simulate funding dynamics and can support early-stage investment screening and startup ecosystem analysis.
+This end-to-end pipeline is reproducible and extendable, suitable for exploring early-stage investment patterns and startup ecosystem dynamics.
 
 ## Files
 
